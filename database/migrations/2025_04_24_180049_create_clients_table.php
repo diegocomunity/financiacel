@@ -21,7 +21,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('credit_score');
+            $table->integer('credit_score')->nullable();
             $table->timestamps();
         });
     }

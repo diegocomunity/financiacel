@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CreditEligibility;
+use App\Helpers\InstallmentCalculator;
 use App\Models\CreditApplication;
 use App\Models\Instalment;
 use App\Models\Phone;
@@ -23,10 +25,16 @@ class PhoneCreditApplicationController extends Controller
         $phoneId = $request->phone_id;
         $months = $request->term_months;
 
+        /*
         $hasActive = CreditApplication::where('client_id', $clientId)
                                         ->whereIn('state', ['pending', 'approved'])
                                         ->exists();
-        if ($hasActive) {
+                                        */
+
+        
+
+                                        
+        if (CreditEligibility::hasActiveCredit($clientId)) {
             return response()->json([
                 'error' => 'El cliente ya tiene un crédito activo.'
             ]);
@@ -42,7 +50,8 @@ class PhoneCreditApplicationController extends Controller
 
         $amount = $phone->price;
 
-        $instalments = $this->calculateInstalments($amount, $months);
+        //$instalments = $this->calculateInstalments($amount, $months);
+        $instalments = InstallmentCalculator::calculate($amount, $months);
 
         DB::beginTransaction();
 

@@ -34,6 +34,13 @@ class ClientSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
+            [
+                'name' => 'Diego Gutierrez',
+                'email' => 'diegoalejandrogutierrezs@gmail.com',
+                'credit_score' => 900,
+                'credit_at' => now(),
+                'updated_at' => now()
+            ]
         ]);
     }
 }
