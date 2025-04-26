@@ -5,20 +5,6 @@ namespace Tests\Unit;
 use App\Helpers\InstallmentCalculator;
 use PHPUnit\Framework\TestCase;
 
-/*
-class InstallmentCalculatorTest extends TestCase
-{
-    public function test_example(): void
-    {
-        $this->assertTrue(true);
-    }
-
-}
-*/
-
-//use App\Helpers\InstallmentCalculator;
-//use Tests\TestCase;
-
 class InstallmentCalculatorTest extends TestCase
 {
     public function test_calculate_instalments_returns_correct_number_of_months()

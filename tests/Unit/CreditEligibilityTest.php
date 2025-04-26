@@ -14,9 +14,8 @@ class CreditEligibilityTest extends TestCase
 
     public function test_client_with_active_credit_is_not_eligible()
     {
-        $client = Client::factory()->create();
-
-        debug($client);
+        $client = \App\Models\Client::factory()->create();
+        $phone = \App\Models\Phone::factory()->create();
         CreditApplication::factory()->create([
             'client_id' => 1,//$client->id
             'phone_id' => 1,

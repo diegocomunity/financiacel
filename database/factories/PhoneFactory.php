@@ -17,7 +17,9 @@ class PhoneFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'model' => $this->faker->word,  // Un modelo aleatorio
+            'price' => $this->faker->numberBetween(100000, 5000000),  // Un precio aleatorio
+            'stock' => $this->faker->randomNumber(),  
         ];
     }
 }
